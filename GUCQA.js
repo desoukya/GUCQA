@@ -1,11 +1,11 @@
-Users= new.Mongo.Collection('users');
-Departments= new.Mongo.Collection('departments');
-Courses= new.Mongo.Collection('courses');
-Questions= new.Mongo.Collection('questions');
-Answers=new.Mongo.Collection('answers');
-Comments=new.Mongo.Collection('comments');
-Reports=new.Mongo.Collection('reports');
-Ratings=new.Mongo.Collection('ratings');
+Users= new Mongo.Collection('users');
+Departments= new Mongo.Collection('departments');
+Courses= new Mongo.Collection('courses');
+Questions= new Mongo.Collection('questions');
+Answers= new Mongo.Collection('answers');
+Comments= new Mongo.Collection('comments');
+Reports= new Mongo.Collection('reports');
+Ratings= new Mongo.Collection('ratings');
 
 if (Meteor.isClient) {
   // counter starts at 0
