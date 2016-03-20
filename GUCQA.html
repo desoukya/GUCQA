@@ -1,14 +1,88 @@
 <head>
-  <title>GUCQA</title>
+  <title>Quesions&Answers App</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome to the GUC QA</h1>
+  <div class= "row">
+      
+	      <h2>Please SignIn or SignUp First</h2>
+      
+	  
+  </div>
+  {{#if currentUser}}
+	 {{> dashboard}}
+	 {{> questions}}
+	 {{> viewQuestions}}
 
-  {{> hello}}
+
+  {{else}}
+    {{> register}}
+    {{> login}}	 
+  {{/if}}
+
+  
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<Template name= "register">
+ <form>
+	  <input type= "email" name= "registerEmail">
+	  <input type= "password" name= "registerPassword">
+	  <input type= "submit" value= "Register">
+ </form>	  
+</Template>
+
+<Template name= "login">
+  <form>
+	  <input type= "email" name= "loginEmail">
+	  <input type= "password" name= "loginPassword">
+	  <input type= "submit" value= "Login">
+ </form>	
+
+</Template>
+<Template name= "dashboard">
+  <p>You're now logged in</p>
+  <p><a href= "#" class="logout">Logout</a></p>
+</Template>
+
+
+<Template name= "questions">
+ <div class= "row" id= "QA">
+  <form>
+    <input type= "text" name= "title" class= "question-tab">
+    <input type= "submit" value= "submit" class="submitQ">
+  </form>
+ </div> 
+</Template>
+
+<Template name= "viewQuestions">
+	 <p><a href= "/allQuestions" class="allQuestions">Click Here to view all Questions</a></p>
+</Template>
+
+<template name= "allQuestions">
+ {{#each questionAll}}
+   <li>
+	  {{title}}
+	  <a href= "/answers"> Click Here to Answer</a>
+  </li>
+ {{/each}}
 </template>
+
+<template name= "answers">
+ <form>
+  <input type= "text" name= "answer">
+  <input type= "submit" value= "submit">
+ </form> 
+ <a href= "/allAnswers">View all Answers to this Question</a>
+</template>
+
+<template name= "allAnswers">
+  {{#each allAnswers}}
+   <li>
+    {{title}}
+   </li> 
+  {{/each}}  
+</template>
+
+
+

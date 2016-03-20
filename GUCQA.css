@@ -1,1 +1,29 @@
 /* CSS declarations go here */
+h1{
+	text-align: center;
+    color: darkcyan;
+}
+h2{
+	font-size: 17px;
+    color: darkslategrey;
+}
+#login-buttons {
+	margin-left: 50px;
+}
+#QA{
+	margin-top: 24px;
+    text-align: center;
+}
+.question-tab{
+	width: 426px;
+    border: 1px solid;
+    border-radius: 5px;
+    height: 80px;
+}
+.submitQ{
+	width: 99px;
+    height: 31px;
+    border: 0px solid;
+    background: darkkhaki;
+    border-radius: 4px;
+}
