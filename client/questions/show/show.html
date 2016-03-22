@@ -1,3 +1,5 @@
-<h2>
-  Content: {{ questionShow.question.content }}
-</h2>
+<form>
+  <input type="text" ng-model="questionShow.question.content" />
+  <button ng-click="questionShow.save()">Save</button>
+</form>
+<button ui-sref="questions">Back</button>
