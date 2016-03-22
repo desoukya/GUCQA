@@ -1,3 +1,8 @@
+<form>
+  <input type="text" ng-model="questionsIndex.newQuestion.content" />
+  <button ng-click="questionsIndex.addQuestion()">Add Question!</button>
+</form>
+
 <ul>
   <li ng-repeat="question in questionsIndex.questions">
     <p>{{question.content}}</p>

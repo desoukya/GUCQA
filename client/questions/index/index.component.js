@@ -6,17 +6,18 @@ angular.module('gucqa').directive('questionsIndex', function() {
     controller: function($scope, $reactive) {
       $reactive(this).attach($scope);
 
-      this.questions = [
-        {
-          'content': 'Can we please just for an evening not listen to dubstep.'
-        },
-        {
-          'content': 'Get it on!'
-        },
-        {
-          'content': 'Leisure suit required. And only fiercest manners.'
+      this.newQuestion = {}
+
+      this.helpers({
+        questions: () => {
+          return Questions.find({});
         }
-      ];
+      });
+
+      this.addQuestion = () => {
+        Questions.insert(this.newQuestion);
+        this.newQuestion = {};
+      };
     }
   }
 });
