@@ -1,5 +1,14 @@
 <form>
-  <input type="text" ng-model="questionShow.question.content" />
-  <button ng-click="questionShow.save()">Save</button>
+  <div class="form-element form-group">
+    <input class="form-control" type="text" placeholder="Question Title" ng-model="questionShow.question.title">
+  </div>
+
+  <div class="form-element form-group">
+    <textarea class="form-control" rows="3" type="text" placeholder="Type Your Question Here.." ng-model="questionShow.question.content"></textarea>
+  </div>
+
+  <div class="form-element form-group">
+    <button class="btn btn-primary" ng-click="questionShow.save()">Save</button>
+    <button class="btn btn-default" ui-sref="questions">Back</button>
+  </div>
 </form>
-<button ui-sref="questions">Back</button>
