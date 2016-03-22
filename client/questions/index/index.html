@@ -4,7 +4,7 @@
 </form>
 
 <ul>
-  <li ng-repeat="question in questionsIndex.questions">
+  <li ui-sref="questionShow({ questionId: question._id })" ng-repeat="question in questionsIndex.questions">
     <p>{{question.content}}</p>
   </li>
 </ul>
