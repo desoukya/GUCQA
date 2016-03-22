@@ -1,10 +1,30 @@
 <form>
-  <input type="text" ng-model="questionsIndex.newQuestion.content" />
-  <button ng-click="questionsIndex.addQuestion()">Add Question!</button>
+  <div class="form-element form-group">
+    <input class="form-control" type="text" placeholder="Question Title" ng-model="questionsIndex.newQuestion.title">
+  </div>
+
+  <div class="form-element form-group">
+    <textarea class="form-control" rows="3" type="text" placeholder="Type Your Question Here.." ng-model="questionsIndex.newQuestion.content"></textarea>
+  </div>
+
+  <div class="form-element form-group">
+    <button class="btn btn-primary" ng-click="questionsIndex.addQuestion()">Add</button>
+  </div>
 </form>
 
-<ul>
-  <li ui-sref="questionShow({ questionId: question._id })" ng-repeat="question in questionsIndex.questions">
-    <p>{{question.content}}</p>
-  </li>
-</ul>
+<hr>
+<h2>Recent Questions</h2>
+
+<div ui-sref="questionShow({ questionId: question._id })" ng-repeat="question in questionsIndex.questions">
+  <div class="question-box">
+    <h3>{{question.title}}</h3>
+
+    <div class="function-buttons">
+      <div class="text-left">
+        7 <i class="fa fa-thumbs-up"></i>
+        17 <i class="fa fa-thumbs-down"></i>
+        1 <i class="fa-commenting"></i>
+      </div>
+    </div>
+  </div>
+</div>
