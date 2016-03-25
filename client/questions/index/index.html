@@ -8,10 +8,16 @@
   </div>
 
   <div class="form-element form-group">
-    <select name="courseSelect" id="courseSelect" ng-model="questionsIndex.newQuestion.courseId">
-      <option disabled="disabled" selected="selected" value="">Category</option>
-      <option ng-repeat="course in questionsIndex.courses" value="{{course._id}}">{{course.code}}: {{course.name}}</option>
-    </select>
+    <ui-select ng-model="questionsIndex.newQuestion.courseId">
+        <ui-select-match placeholder="Category">
+            <b ng-bind="'(' + $select.selected.code + ')'"></b>
+            <span ng-bind="$select.selected.name"></span>
+        </ui-select-match>
+        <ui-select-choices repeat="course._id as course in (questionsIndex.courses | filter: $select.search)">
+            <b ng-bind="'(' + course.code + ')'"></b>
+            <span ng-bind="course.name"></span>
+        </ui-select-choices>
+    </ui-select>
   </div>
 
   <div class="form-element form-group">

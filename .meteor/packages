@@ -22,3 +22,4 @@ twbs:bootstrap
 angularui:angular-ui-bootstrap
 less
 fortawesome:fontawesome
+angularui:ui-select
