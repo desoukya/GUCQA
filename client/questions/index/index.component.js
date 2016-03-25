@@ -11,6 +11,9 @@ angular.module('gucqa').directive('questionsIndex', function() {
       this.helpers({
         questions: () => {
           return Questions.find({}, { sort: { createdAt: -1 } });
+        },
+        courses: () => {
+          return Courses.find({}, { sort: { code: 1 } });
         }
       });
 
