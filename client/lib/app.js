@@ -1,2 +1,2 @@
-angular.module('gucqa', ['angular-meteor', 'ui.router', 'ui.bootstrap']);
+angular.module('gucqa', ['angular-meteor', 'ui.router', 'ui.bootstrap', 'ui.select']);
 
