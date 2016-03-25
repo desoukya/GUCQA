@@ -1,5 +1,13 @@
-<div ng-repeat="course in coursesIndex.courses">
-  <a ui-sref="courseShow({ courseId: course._id })">
-    {{course.code}}: {{course.name}}
-  </a>
+<input class="form-control" type="text" ng-model="searchCourse" placeholder="Search Available Courses">
+
+<div ng-repeat="course in coursesIndex.courses | filter: searchCourse">
+  <div class="col-md-4">
+    <div class="span6">
+      <div class="caption">
+        <h3>
+          <a ui-sref="courseShow({ courseId: course._id })">{{course.code}}</a>
+        </h3>
+      </div>
+    </div>
+  </div>
 </div>
