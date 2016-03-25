@@ -1,6 +1,5 @@
 <div ng-repeat="course in coursesIndex.courses">
-  <p>
+  <a ui-sref="courseShow({ courseId: course._id })">
     {{course.code}}: {{course.name}}
-  </p>
+  </a>
 </div>
-

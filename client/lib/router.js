@@ -13,6 +13,10 @@ angular.module('gucqa').config(function ($urlRouterProvider, $stateProvider, $lo
     .state('courses', {
       url: '/courses',
       template: '<courses-index></courses-index>'
+    })
+    .state('courseShow', {
+      url: '/courses/:courseId',
+      template: '<course-show></course-show>'
     });
 
   $urlRouterProvider.otherwise("/questions");
