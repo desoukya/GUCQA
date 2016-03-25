@@ -8,6 +8,13 @@
   </div>
 
   <div class="form-element form-group">
+    <select name="courseSelect" id="courseSelect" ng-model="questionsIndex.newQuestion.courseId">
+      <option disabled="disabled" selected="selected" value="">Category</option>
+      <option ng-repeat="course in questionsIndex.courses" value="{{course._id}}">{{course.code}}: {{course.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-element form-group">
     <button class="btn btn-primary" ng-click="questionsIndex.addQuestion()">Add</button>
   </div>
 </form>
