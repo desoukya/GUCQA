@@ -1,0 +1,32 @@
+<h3>
+  <b>({{courseShow.course.code}})</b> {{courseShow.course.name}}
+</h3>
+<br>
+
+<form>
+  <div class="form-element form-group">
+    <input class="form-control" type="text" placeholder="Question Title" ng-model="courseShow.newQuestion.title">
+  </div>
+
+  <div class="form-element form-group">
+    <textarea class="form-control" rows="3" type="text" placeholder="Type Your Question Here.." ng-model="courseShow.newQuestion.content"></textarea>
+  </div>
+
+  <div class="form-element form-group">
+    <button class="btn btn-primary" ng-click="courseShow.addQuestion()">Add</button>
+  </div>
+</form>
+
+<div ui-sref="questionShow({ questionId: question._id })" ng-repeat="question in courseShow.questions">
+  <div class="question-box">
+    <h3>{{question.title}}</h3>
+
+    <div class="function-buttons">
+      <div class="text-left">
+        7 <i class="fa fa-thumbs-up"></i>
+        17 <i class="fa fa-thumbs-down"></i>
+        1 <i class="fa-commenting"></i>
+      </div>
+    </div>
+  </div>
+</div>
