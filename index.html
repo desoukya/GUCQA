@@ -1,0 +1,91 @@
+<head>
+  <base href="/">
+
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body ng-app= "guc_qa">
+ 
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+         <div class="navbar-header">
+           <ul class="nav navbar-nav">
+             <li><a href="#">Home</a></li>
+             <li ui-sref="questionsList" ><a href="#">Ask Question</a></li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Questions <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+               <li ui-sref="allQuestions"><a href="#">All Questions</a></li>
+               <li><a href="#">Question Single</a></li>
+               <li><a href="#">Poll Question Single</a></li>
+              </ul>
+             </li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+               <li ui-sref="userProfile"><a href="#">User Profile</a></li>
+               <li ><a href="#">User Questions</a></li>
+               <li><a href="#">User Answers</a></li>
+               <li><a href="#">User Favorite Questions</a></li>
+
+              </ul>
+             </li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Faculties <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+               <li><a href="#">Engineering</a></li>
+               <li><a href="#">Pharmacy</a></li>
+               <li><a href="#">Management</a></li>
+               <li><a href="#">Applied Arts and Sciences</a></li>
+
+              </ul>
+             </li>
+
+           </ul>
+           <ul class="nav navbar-nav navbar-right">
+           <li><login-buttons></login-buttons></li>
+           </ul>
+
+
+         </div>
+
+
+    </div>  
+
+  </nav>
+  <div class="jumbotron">
+  <h1>Welcome to Guc Questions and Answers</h1>
+  <p>You can ask anything related to any course and you'll get an answer AS SOON AS POSSIBLE</p>
+  <p id= "btn"><a class="btn btn-primary btn-lg" href="#" role="button">Join Now</a></p>
+</div>
+</div>
+	  <div ui-view=""></div>
+ </div>
+ <!-- <div class="row">
+  <div class= "col-md-3">
+  <li>Recent Questions</li>
+  </div>
+  <div class= "col-md-3">
+  <li>Most Respones</li>
+  </div>
+  <div class= "col-md-3">
+  <li>Recently Answered</li>
+  </div>
+  <div class= "col-md-3">
+  <li>No Answers</li>
+  </div>
+	 
+ </div> -->
+
+</body>
+
+
+
+
+<!-- <body ng-app= "guc_qa">
+
+  <div ng-controller= "questionsList">
+    <li ng-repeat= "question in questionsList.questions">
+    {{question.name}}
+    </li>
+  </div>
+</body> -->

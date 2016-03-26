@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+<form>
+<p>
+  <label>Course Name: </label>
+  <input type="text" ng-model="questionsList.newQuestion.courseName" id="course"/>
+</p>
+<p>  
+  <label> Question: </label>
+  <input type="text" ng-model= "questionsList.newQuestion.question" />
+</p>
+<p>
+<label> Details: </label>
+  <input type="text" ng-model= "questionsList.newQuestion.question" />
+</p>  
+  <button ng-click= "questionsList.addQuestion()" id="askQ">Ask Question</button>
+</form>
