@@ -1,0 +1,96 @@
+.navbar-default{
+	   background-color: darkcyan;
+    height: 70px;
+    border-radius: 0px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+	}
+	.jumbotron{
+		margin-top: -21px;
+		background-color: rgb(255, 237, 237);
+
+	}
+	.jumbotron h1{
+		    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+    color: #A94442;
+
+	}
+	.jumbotron p{
+		    margin-top: 32px;
+    font-size: 14px;
+    
+	}
+	#btn{
+		    text-align: center;
+	}
+	#login-buttons{
+		    margin-left: 356px;
+    margin-top: 15px;
+    font-size: 19px;
+	}
+
+    #login-buttons a{
+	    color: white;    
+	}
+	#course{
+		    width: 148px;
+	}
+    #ques{
+    	width: 416px;
+    height: 72px;
+    }
+    #askQ{
+    	    margin-left: 13px;
+    width: 129px;
+    height: 31px;
+    border: 0px;
+    border-radius: 7px;
+    background-color: burlywood;
+    font-weight: bold;
+    }
+    #login-buttons .login-close-text {
+    color:black;
+}
+    #login-buttons #forgot-password-link {
+    color:black;
+    }
+    #login-buttons #signup-link {
+    	    color:black;
+
+    }
+    .col-md-3 {
+    	list-style: none;
+    }
+    .row{
+    	    background-color: rgba(128, 128, 128, 0.25);
+
+            margin-top: -30px;
+    }
+    li{
+    	    margin-bottom: 19px;
+    }
+    #cont{
+        text-align: center;
+    }
+    #b1{
+            width: 430px;
+    margin: 0 auto;
+    height: 100px;
+    text-align: center;
+    }
+    #b2{
+            margin: 3% 45%;
+    width: 130px;
+    background-color: beige;
+    font-weight: bold;
+    color: black;
+    }
+    h2{
+        text-align: center;
+    }

@@ -1,0 +1,16 @@
+<div class= "container" id= "C1">
+	<button class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+	  <ul class="dropdown-menu">
+	    <li ng-repeat= "course in allCourses.courses">
+	      <a ui-sref="courseQuestions({courseId: course._id})">{{course.code}}</a>
+	    </li>
+	  </ul>
+	</button>
+</div>
+
+
+
+              
+              
+               

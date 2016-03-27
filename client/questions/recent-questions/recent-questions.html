@@ -1,0 +1,15 @@
+<h2> Recent Questions</h2>
+
+
+
+<li ng-repeat = "question in recentQuestions.questions">
+<p>Question: 
+{{question.question}}
+</p>
+<p> Course: 
+{{question.courseCode}}
+</p>
+<button ui-sref= "allAnswers({questionId: question._id})">Answer Question</button>
+<button ui-sref= "alAnswers({questionId: question._id})">View Answers to this Question</button>
+
+</li>
