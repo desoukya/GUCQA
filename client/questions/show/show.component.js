@@ -9,6 +9,9 @@ angular.module('gucqa').directive('questionShow', function () {
       this.helpers({
         question: () => {
           return Questions.findOne({ _id: $stateParams.questionId });
+        },
+        answers: () => {
+          return Answers.find({ questionId: $stateParams.questionId}, { sort: { createdAt: -1 } });
         }
       });
 
@@ -25,6 +28,16 @@ angular.module('gucqa').directive('questionShow', function () {
             $state.go('questions');
           }
         });
+      };
+
+      this.newAnswer = {};
+
+      this.addAnswer = () => {
+        this.newAnswer.createdAt = new Date();
+        this.newAnswer.questionId = $stateParams.questionId;
+
+        Answers.insert(this.newAnswer);
+        this.newAnswer = {};
       };
     }
   }
