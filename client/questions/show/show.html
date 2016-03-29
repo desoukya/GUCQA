@@ -12,3 +12,30 @@
     <button class="btn btn-default" ui-sref="questions">Back</button>
   </div>
 </form>
+
+<hr>
+<h2>Answers</h2>
+
+<form>
+  <div class="form-element form-group">
+    <textarea class="form-control" rows="3" type="text" placeholder="Add Your Answer.." ng-model="questionShow.newAnswer.content"></textarea>
+  </div>
+
+  <div class="form-element form-group">
+    <button class="btn btn-primary" ng-click="questionShow.addAnswer()">Add Answer</button>
+  </div>
+</form>
+
+<div ng-repeat="answer in questionShow.answers">
+  <div class="question-box">
+    <h3>{{answer.content}}</h3>
+
+    <div class="function-buttons">
+      <div class="text-left">
+        7 <i class="fa fa-thumbs-up"></i>
+        17 <i class="fa fa-thumbs-down"></i>
+        1 <i class="fa-commenting"></i>
+      </div>
+    </div>
+  </div>
+</div>
