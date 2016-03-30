@@ -35,8 +35,10 @@ angular.module('gucqa').directive('questionShow', function () {
       this.addAnswer = () => {
         this.newAnswer.createdAt = new Date();
         this.newAnswer.questionId = $stateParams.questionId;
+        this.newAnswer.owner = Meteor.user()._id;
 
         Answers.insert(this.newAnswer);
+
         this.newAnswer = {};
       };
     }
