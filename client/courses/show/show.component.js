@@ -20,6 +20,7 @@ angular.module('gucqa').directive('courseShow', function () {
       this.addQuestion = () => {
         this.newQuestion.createdAt = new Date();
         this.newQuestion.courseId = $stateParams.courseId;
+        this.newQuestion.owner = Meteor.user()._id;
 
         Questions.insert(this.newQuestion);
         this.newQuestion = {};
