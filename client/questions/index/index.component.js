@@ -23,6 +23,7 @@ angular.module('gucqa').directive('questionsIndex', function() {
 
       this.addQuestion = () => {
         this.newQuestion.createdAt = new Date();
+        this.newQuestion.votes = 0;
         this.newQuestion.owner = Meteor.user()._id;
 
         Questions.insert(this.newQuestion);
