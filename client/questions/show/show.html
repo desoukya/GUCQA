@@ -1,26 +1,28 @@
-<span ng-init='questionShow.owner'>
-  By {{questionShow.owner}}
-</span>
-<form>
-  <div class="form-element form-group">
-    <input class="form-control" type="text" placeholder="Question Title" ng-model="questionShow.question.title">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    {{questionShow.question.title}}
   </div>
-
-  <div class="form-element form-group">
-    <textarea class="form-control" rows="3" type="text" placeholder="Type Your Question Here.." ng-model="questionShow.question.content"></textarea>
+  <div class="panel-body">
+    <p>{{questionShow.question.content}}</p>
   </div>
-
-  <div class="form-element form-group">
-    <button class="btn btn-primary" ng-click="questionShow.save()">Save</button>
-    <button class="btn btn-default" ui-sref="questions">Back</button>
+  <div class="panel-footer">
+    <div class="text-left">
+      <div class="function-buttons">
+        <a ng-click='questionShow.upVote()'><i class="fa fa-thumbs-up"></i></a>
+        <span>{{questionShow.question.votes}}</span>
+        <a ng-click='questionShow.downVote()'><i class="fa fa-thumbs-down"></i></a>
+      </div>
+    </div>
+    <div class="text-right">
+      <span>{{questionShow.owner}}</span> |
+      <span>Date Created</span>
+    </div>
   </div>
-</form>
-
-<p><span ng-click='questionShow.upVote()'>Vote Up</span></p>
-<p><span ng-click='questionShow.downVote()'>Vote Down</span></p>
+</div>
 
 <hr>
-<h2>Answers</h2>
+<h3>Answers</h3>
+<br>
 
 <form>
   <div class="form-element form-group">
@@ -33,13 +35,18 @@
 </form>
 
 <div ng-repeat="answer in questionShow.answers">
-  <div class="question-box">
-    <h3>{{answer.content}}</h3>
-
-    <div class="function-buttons">
-      <div class="text-left">
-        7 <i class="fa fa-thumbs-up"></i>
-        17 <i class="fa fa-thumbs-down"></i>
+  <div class="panel panel-green">
+    <div class="panel-heading">
+      {{questionShow.answerOwner(answer.owner)}}
+    </div>
+    <div class="panel-body">
+        <p>{{answer.content}}</p>
+    </div>
+    <div class="panel-footer">
+      <div class="centered-function-buttons">
+        <i class="fa fa-thumbs-up"></i>
+        <span>4</span>
+        <i class="fa fa-thumbs-down"></i>
       </div>
     </div>
   </div>
