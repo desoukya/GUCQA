@@ -17,6 +17,10 @@ angular.module('gucqa').directive('questionsIndex', function() {
         }
       });
 
+      this.numberOfAnswers = (questionsId) => {
+        return Answers.find({questionId: questionsId}).count();
+      }
+
       this.addQuestion = () => {
         this.newQuestion.createdAt = new Date();
         this.newQuestion.owner = Meteor.user()._id;

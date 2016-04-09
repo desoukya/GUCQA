@@ -17,6 +17,11 @@ angular.module('gucqa').directive('courseShow', function () {
         }
       });
 
+      this.numberOfAnswers = (questionsId) => {
+        return Answers.find({questionId: questionsId}).count();
+      }
+
+
       this.addQuestion = () => {
         this.newQuestion.createdAt = new Date();
         this.newQuestion.courseId = $stateParams.courseId;
