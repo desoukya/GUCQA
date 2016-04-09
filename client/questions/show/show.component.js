@@ -87,7 +87,6 @@ angular.module('gucqa').directive('questionShow', function () {
         }, (error) => {
           if (error) {
             console.log('An error occurred!');
-            console.log(error);
           }
         });
       };
