@@ -14,7 +14,7 @@ angular.module('gucqa').directive('questionShow', function () {
           return Answers.find({ questionId: $stateParams.questionId}, { sort: { createdAt: -1 } });
         },
         owner: () => {
-          return Meteor.users.findOne({ _id: this.question.owner}).emails[0].address
+          return Meteor.users.findOne({ _id: this.question.owner}).emails[0].address;
         }
       });
 
