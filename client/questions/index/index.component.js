@@ -30,6 +30,10 @@ angular.module('gucqa').directive('questionsIndex', function() {
 
         this.newQuestion = {};
       };
+
+      this.course = (courseId) => {
+        return Courses.findOne({_id: courseId}).code;
+      };
     }
   }
 });
