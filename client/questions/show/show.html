@@ -1,4 +1,6 @@
-By {{questionShow.owner}}
+<span ng-init='questionShow.owner'>
+  By {{questionShow.owner}}
+</span>
 <form>
   <div class="form-element form-group">
     <input class="form-control" type="text" placeholder="Question Title" ng-model="questionShow.question.title">
@@ -13,6 +15,9 @@ By {{questionShow.owner}}
     <button class="btn btn-default" ui-sref="questions">Back</button>
   </div>
 </form>
+
+<p><span ng-click='questionShow.upVote()'>Vote Up</span></p>
+<p><span ng-click='questionShow.downVote()'>Vote Down</span></p>
 
 <hr>
 <h2>Answers</h2>

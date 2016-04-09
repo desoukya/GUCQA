@@ -21,9 +21,9 @@ angular.module('gucqa').directive('courseShow', function () {
         return Answers.find({questionId: questionsId}).count();
       }
 
-
       this.addQuestion = () => {
         this.newQuestion.createdAt = new Date();
+        this.newQuestion.votes = 0;
         this.newQuestion.courseId = $stateParams.courseId;
         this.newQuestion.owner = Meteor.user()._id;
 
