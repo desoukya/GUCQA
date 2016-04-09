@@ -14,8 +14,8 @@
       </div>
     </div>
     <div class="text-right">
-      <span>{{questionShow.owner}}</span> |
-      <span>Date Created</span>
+      <span>{{questionShow.owner}}</span> &middot;
+      <span>{{questionShow.question.createdAt | amDateFormat:'MMM DD YY'}}</span>
     </div>
   </div>
 </div>
@@ -37,7 +37,9 @@
 <div ng-repeat="answer in questionShow.answers">
   <div class="panel panel-green">
     <div class="panel-heading">
-      {{questionShow.answerOwner(answer.owner)}}
+      {{questionShow.answerOwner(answer.owner)}} &middot;
+      <span>{{answer.createdAt | amDateFormat:'MMM DD YY'}}</span>
+
     </div>
     <div class="panel-body">
         <p>{{answer.content}}</p>
