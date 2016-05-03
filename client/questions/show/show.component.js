@@ -13,9 +13,9 @@ angular.module('gucqa').directive('questionShow', function () {
         answers: () => {
           return Answers.find({ questionId: $stateParams.questionId}, { sort: { createdAt: -1 } });
         },
-        owner: () => {
-          return Meteor.users.findOne({ _id: this.question.owner}).emails[0].address;
-        }
+        // owner: () => {
+        //   return Meteor.users.findOne({ _id: this.question.owner}).emails[0].address;
+        // }
       });
 
       this.save = () => {
@@ -39,6 +39,7 @@ angular.module('gucqa').directive('questionShow', function () {
         this.newAnswer.createdAt = new Date();
         this.newAnswer.questionId = $stateParams.questionId;
         this.newAnswer.owner = Meteor.user()._id;
+        this.newAnswer.votes=0;
 
         Answers.insert(this.newAnswer);
 
@@ -60,6 +61,53 @@ angular.module('gucqa').directive('questionShow', function () {
         Questions.update({_id: $stateParams.questionId}, {
           $set: {
             votes: this.question.votes + 1
+          }
+        }, (error) => {
+          if (error) {
+            console.log('An error occurred!');
+          }
+        });
+      };
+      this.getAnswer = () => {
+        return Answers.findOne({questionId:$stateParams.questionId},{ sort: { createdAt: -1 } } );
+      }
+      this.AnswervoteUp = () => {
+        if (vote = Votes.findOne({voteanswerId: this.getAnswer()._id, owner: Meteor.user()._id})) {
+          if (vote.direction == 'up') {
+            console.log("Already voted!!");
+            return;
+          } else {
+            Votes.update({_id: vote._id}, { $set: { direction: 'up' }});
+          }
+        } else {
+          Votes.insert({voteanswerId: this.getAnswer()._id, owner: Meteor.user()._id, direction: 'up'});
+        }
+
+        Answers.update({_id: this.getAnswer()._id}, {
+          $set: {
+            votes: this.getAnswer().votes + 1
+          }
+        }, (error) => {
+          if (error) {
+            console.log('An error occurred!');
+          }
+        });
+      };
+      this.AnswervoteDown = () => {
+        if (vote = Votes.findOne({voteanswerId: this.getAnswer()._id, owner: Meteor.user()._id})) {
+          if (vote.direction == 'down') {
+            console.log("Already voted!");
+            return;
+          } else {
+            Votes.update({_id: vote._id}, { $set: { direction: 'down' }});
+          }
+        } else {
+          Votes.insert({voteanswerId: this.getAnswer()._id, owner: Meteor.user()._id, direction: 'down'});
+        }
+
+        Answers.update({_id: this.getAnswer()._id}, {
+          $set: {
+            votes: this.getAnswer().votes - 1
           }
         }, (error) => {
           if (error) {
@@ -92,6 +140,9 @@ angular.module('gucqa').directive('questionShow', function () {
       };
 
       this.answerOwner = (ownerId) => {
+        return Meteor.users.findOne({ _id: ownerId}).emails[0].address;
+      };
+       this.questionOwner = (ownerId) => {
         return Meteor.users.findOne({ _id: ownerId}).emails[0].address;
       };
     }
