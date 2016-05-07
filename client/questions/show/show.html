@@ -28,32 +28,4 @@
 <h3>Answers</h3>
 <br>
 
-<form>
-  <div class="form-element form-group">
-    <textarea class="form-control" rows="3" type="text" placeholder="Add Your Answer.." ng-model="questionShow.newAnswer.content"></textarea>
-  </div>
-
-  <div class="form-element form-group">
-    <button class="btn btn-primary" ng-click="questionShow.addAnswer()">Add Answer</button>
-  </div>
-</form>
-
-<div ng-repeat="answer in questionShow.answers">
-  <div class="panel panel-green">
-    <div class="panel-heading">
-      {{questionShow.answerOwner(answer.owner)}} &middot;
-      <span>{{answer.createdAt | amDateFormat:'MMM DD YY'}}</span>
-
-    </div>
-    <div class="panel-body">
-        <p>{{answer.content}}</p>
-    </div>
-    <div class="panel-footer">
-      <div class="centered-function-buttons">
-      <a ng-click='questionShow.AnswervoteUp()'> <i class="fa fa-thumbs-up"></i></a>
-        <span>{{answer.votes}}</span>
-      <a ng-click='questionShow.AnswervoteDown()'><i class="fa fa-thumbs-down"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
+<answers-index question="questionShow.question"></answers-index>
