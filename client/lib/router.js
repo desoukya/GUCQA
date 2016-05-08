@@ -3,7 +3,7 @@ angular.module('gucqa').config(function ($urlRouterProvider, $stateProvider, $lo
 
   $stateProvider
     .state('questions', {
-      url: '/questions',
+      url: '/',
       template: '<questions-index></questions-index>'
     })
     .state('questionShow', {
@@ -19,6 +19,6 @@ angular.module('gucqa').config(function ($urlRouterProvider, $stateProvider, $lo
       template: '<course-show></course-show>'
     });
 
-  $urlRouterProvider.otherwise("/questions");
+  $urlRouterProvider.otherwise("/");
 });
 
