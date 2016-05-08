@@ -74,8 +74,10 @@ angular.module('gucqa').directive('questionShow', function () {
       this.AnswervoteUp = () => {
         if (vote = Votes.findOne({voteanswerId: this.getAnswer()._id, owner: Meteor.user()._id})) {
           if (vote.direction == 'up') {
-            console.log("Already voted!!");
-            return;
+          console.log("Already voted!!");
+           return;
+           
+            
           } else {
             Votes.update({_id: vote._id}, { $set: { direction: 'up' }});
           }
