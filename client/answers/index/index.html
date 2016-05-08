@@ -22,9 +22,9 @@
     </div>
     <div class="panel-footer">
       <div class="centered-function-buttons">
-      <a ng-click='questionShow.AnswervoteUp()'> <i class="fa fa-thumbs-up"></i></a>
-        <span>{{answer.votes}}</span>
-      <a ng-click='questionShow.AnswervoteDown()'><i class="fa fa-thumbs-down"></i></a>
+        <a ng-click='answersIndex.upvote(answer)'> <i class="fa fa-thumbs-up"></i></a>
+          <span>{{answer.votes}}</span>
+        <a ng-click='answersIndex.downvote(answer)'><i class="fa fa-thumbs-down"></i></a>
       </div>
     </div>
   </div>

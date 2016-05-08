@@ -6,8 +6,6 @@ angular.module('gucqa').directive('questionsIndex', function() {
     controller: function($scope, $reactive) {
       $reactive(this).attach($scope);
 
-      this.newQuestion = {}
-
       this.helpers({
         questions: () => {
           return Questions.find({}, { sort: { createdAt: -1 } });
@@ -21,6 +19,8 @@ angular.module('gucqa').directive('questionsIndex', function() {
         return Answers.find({questionId: questionsId}).count();
       }
 
+      this.newQuestion = {}
+
       this.addQuestion = () => {
         this.newQuestion.createdAt = new Date();
         this.newQuestion.votes = 0;
@@ -30,9 +30,8 @@ angular.module('gucqa').directive('questionsIndex', function() {
 
         this.newQuestion = {};
       };
-      
 
-      this.course = (courseId) => {
+      this.courseCode = (courseId) => {
         return Courses.findOne({_id: courseId}).code;
       };
     }

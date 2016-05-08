@@ -35,8 +35,52 @@ angular.module('gucqa').directive('answersIndex', function() {
       this.answerOwner = (ownerId) => {
         return Meteor.users.findOne({ _id: ownerId}).emails[0].address;
       };
+
+      this.upvote = (answer) => {
+        if (vote = Votes.findOne({votableId: answer._id, votableType: 'answer',owner: Meteor.user()._id})) {
+          if (vote.direction == 'up') {
+            console.log("Already voted!!");
+            return;
+          } else {
+            Votes.update({_id: vote._id}, { $set: { direction: 'up' }});
+          }
+        } else {
+          Votes.insert({votableId: answer._id, votableType: 'answer', owner: Meteor.user()._id, direction: 'up'});
+        }
+
+        Answers.update({_id: answer._id}, {
+          $set: {
+            votes: answer.votes + 1
+          }
+        }, (error) => {
+          if (error) {
+            console.log('An error occurred!');
+          }
+        });
+      };
+
+      this.downvote = (answer) => {
+        if (vote = Votes.findOne({votableId: answer._id, votableType: 'answer', owner: Meteor.user()._id})) {
+          if (vote.direction == 'down') {
+            console.log("Already voted!");
+            return;
+          } else {
+            Votes.update({_id: vote._id}, { $set: { direction: 'down' }});
+          }
+        } else {
+          Votes.insert({votableId: answer._id, votableType: 'answer', owner: Meteor.user()._id, direction: 'down'});
+        }
+
+        Answers.update({_id: answer._id}, {
+          $set: {
+            votes: answer.votes - 1
+          }
+        }, (error) => {
+          if (error) {
+            console.log('An error occurred!');
+          }
+        });
+      };
     }
   }
 });
-
-
