@@ -33,9 +33,7 @@
         </div>
       </div>
       <div class="text-right">
-        <a ui-sref="courseShow({ courseId: question.courseId })">
-          do something
-        </a>
+        <span>{{question.createdAt | amDateFormat:'MMM DD, YYYY'}}</span>
       </div>
     </div>
   </div>

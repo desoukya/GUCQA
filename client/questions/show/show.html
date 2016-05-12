@@ -1,12 +1,12 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
       <div class="text-center">
-        <span>{{questionShow.question.title}}</span> &middot;
-        <span>{{questionShow.questionOwner(questionShow.question.owner)}}</span>
+        <span>{{questionShow.question.title}}</span>
       </div>
   </div>
   <div class="panel-body">
     <p>{{questionShow.question.content}}</p>
+    <small>By <b>{{questionShow.questionOwner(questionShow.question.owner)}}</b></small>
   </div>
   <div class="panel-footer">
     <div class="text-left">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="text-right">
-      <span>{{questionShow.question.createdAt | amDateFormat:'MMM DD YY'}}</span>
+      <span>{{questionShow.question.createdAt | amDateFormat:'MMM DD, YYYY'}}</span>
     </div>
   </div>
 </div>

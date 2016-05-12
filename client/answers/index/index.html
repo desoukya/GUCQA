@@ -13,12 +13,11 @@
 <div ng-repeat="answer in answersIndex.answers">
   <div class="panel panel-green">
     <div class="panel-heading">
-      {{answersIndex.answerOwner(answer.owner)}} &middot;
-      <span>{{answer.createdAt | amDateFormat:'MMM DD YY'}}</span>
-
+      <span>{{answer.createdAt | amDateFormat:'MMM DD, YYYY'}}</span>
     </div>
     <div class="panel-body">
         <p>{{answer.content}}</p>
+        <small>By <b>{{answersIndex.answerOwner(answer.owner)}}</b></small>
     </div>
     <div class="panel-footer">
       <div class="centered-function-buttons">
