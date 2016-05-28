@@ -9,12 +9,6 @@ angular.module('gucqa').directive('questionShow', function () {
       this.helpers({
         question: () => {
           return Questions.findOne({ _id: $stateParams.questionId });
-        },
-        answers: () => {
-          return Answers.find({ questionId: $stateParams.questionId}, { sort: { createdAt: -1 } });
-        },
-        owner: () => {
-          return Meteor.users.findOne({ _id: this.question.owner}).emails[0].address;
         }
       });
 
@@ -33,28 +27,20 @@ angular.module('gucqa').directive('questionShow', function () {
         });
       };
 
-      this.newAnswer = {};
-
-      this.addAnswer = () => {
-        this.newAnswer.createdAt = new Date();
-        this.newAnswer.questionId = $stateParams.questionId;
-        this.newAnswer.owner = Meteor.user()._id;
-
-        Answers.insert(this.newAnswer);
-
-        this.newAnswer = {};
+      this.questionOwner = (ownerId) => {
+        return Meteor.users.findOne({ _id: ownerId}).emails[0].address;
       };
 
-      this.upVote = () => {
-        if (vote = Voters.findOne({votableId: $stateParams.questionId, owner: Meteor.user()._id})) {
+      this.upvote = () => {
+        if (vote = Votes.findOne({votableId: $stateParams.questionId, votableType: 'question', owner: Meteor.user()._id})) {
           if (vote.direction == 'up') {
             console.log("Already voted!!");
             return;
           } else {
-            Voters.update({_id: vote._id}, { $set: { direction: 'up' }});
+            Votes.update({_id: vote._id}, { $set: { direction: 'up' }});
           }
         } else {
-          Voters.insert({votableId: $stateParams.questionId, owner: Meteor.user()._id, direction: 'up'});
+          Votes.insert({votableId: $stateParams.questionId, votableType: 'question', owner: Meteor.user()._id, direction: 'up'});
         }
 
         Questions.update({_id: $stateParams.questionId}, {
@@ -68,16 +54,16 @@ angular.module('gucqa').directive('questionShow', function () {
         });
       };
 
-      this.downVote = () => {
-        if (vote = Voters.findOne({votableId: $stateParams.questionId, owner: Meteor.user()._id})) {
+      this.downvote = () => {
+        if (vote = Votes.findOne({votableId: $stateParams.questionId, votableType: 'question', owner: Meteor.user()._id})) {
           if (vote.direction == 'down') {
             console.log("Already voted!");
             return;
           } else {
-            Voters.update({_id: vote._id}, { $set: { direction: 'down' }});
+            Votes.update({_id: vote._id}, { $set: { direction: 'down' }});
           }
         } else {
-          Voters.insert({votableId: $stateParams.questionId, owner: Meteor.user()._id, direction: 'down'});
+          Votes.insert({votableId: $stateParams.questionId, votableType: 'question', owner: Meteor.user()._id, direction: 'down'});
         }
 
         Questions.update({_id: $stateParams.questionId}, {
@@ -89,10 +75,6 @@ angular.module('gucqa').directive('questionShow', function () {
             console.log('An error occurred!');
           }
         });
-      };
-
-      this.answerOwner = (ownerId) => {
-        return Meteor.users.findOne({ _id: ownerId}).emails[0].address;
       };
     }
   }

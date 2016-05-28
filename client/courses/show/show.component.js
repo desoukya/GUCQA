@@ -29,7 +29,7 @@ angular.module('gucqa').directive('courseShow', function () {
 
         Questions.insert(this.newQuestion);
         this.newQuestion = {};
-      };
+      }
     }
   }
 });

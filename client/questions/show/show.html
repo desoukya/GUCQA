@@ -1,21 +1,23 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    {{questionShow.question.title}}
+      <div class="text-center">
+        <span>{{questionShow.question.title}}</span>
+      </div>
   </div>
   <div class="panel-body">
     <p>{{questionShow.question.content}}</p>
+    <small>By <b>{{questionShow.questionOwner(questionShow.question.owner)}}</b></small>
   </div>
   <div class="panel-footer">
     <div class="text-left">
       <div class="function-buttons">
-        <a ng-click='questionShow.upVote()'><i class="fa fa-thumbs-up"></i></a>
+        <a ng-click='questionShow.upvote()'><i class="fa fa-thumbs-up"></i></a>
         <span>{{questionShow.question.votes}}</span>
-        <a ng-click='questionShow.downVote()'><i class="fa fa-thumbs-down"></i></a>
+        <a ng-click='questionShow.downvote()'><i class="fa fa-thumbs-down"></i></a>
       </div>
     </div>
     <div class="text-right">
-      <span>{{questionShow.owner}}</span> &middot;
-      <span>{{questionShow.question.createdAt | amDateFormat:'MMM DD YY'}}</span>
+      <span>{{questionShow.question.createdAt | amDateFormat:'MMM DD, YYYY'}}</span>
     </div>
   </div>
 </div>
@@ -24,32 +26,4 @@
 <h3>Answers</h3>
 <br>
 
-<form>
-  <div class="form-element form-group">
-    <textarea class="form-control" rows="3" type="text" placeholder="Add Your Answer.." ng-model="questionShow.newAnswer.content"></textarea>
-  </div>
-
-  <div class="form-element form-group">
-    <button class="btn btn-primary" ng-click="questionShow.addAnswer()">Add Answer</button>
-  </div>
-</form>
-
-<div ng-repeat="answer in questionShow.answers">
-  <div class="panel panel-green">
-    <div class="panel-heading">
-      {{questionShow.answerOwner(answer.owner)}} &middot;
-      <span>{{answer.createdAt | amDateFormat:'MMM DD YY'}}</span>
-
-    </div>
-    <div class="panel-body">
-        <p>{{answer.content}}</p>
-    </div>
-    <div class="panel-footer">
-      <div class="centered-function-buttons">
-        <i class="fa fa-thumbs-up"></i>
-        <span>4</span>
-        <i class="fa fa-thumbs-down"></i>
-      </div>
-    </div>
-  </div>
-</div>
+<answers-index question="questionShow.question"></answers-index>
